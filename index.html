@@ -8,9 +8,11 @@
         <title>Tetris</title>
     </head> 
     <body>
-        <h3>Score:<span id="score">0</span></h3>
-        <button id = "start-button">Start/Pause</button>
-
+        <div class="game-info">
+            <h3>Score: <span id="score">0</span></h3>
+            <button id="start-button" aria-label="Start or pause game">Start/Pause</button>
+        </div>
+        
         <div class="container">
             <div class="grid">
                 <div></div>
@@ -245,6 +247,14 @@
                 <div></div>
                 <div></div>
             </div>
+
         </div>
+        <div class="instructions">
+            <h4>Controls</h4>
+            <p>← → : Move Left/Right</p>
+            <p>↑ : Rotate</p>
+            <p>↓ : Move Down Faster</p>
+        </div>
+
     </body>
 </html>
