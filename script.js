@@ -155,4 +155,31 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 1, displayWidth, displayWidth+1], 
         [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1] 
     ]
+
+    function displayShape(){
+        displaySquares.forEach(square => {
+            square.classList.remove('tetromino')
+            square.style.backgroundColor = ''
+        })
+        upNextTetrominoes[nextRandom].forEach( index => {
+            displaySquares[displayIndex + index].classList.add('tetromino')
+            displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
+        })
+
+    }
+
+    startBtn.addEventListener('click',() => {
+        if(timerId) {
+            clearInterval(timerId)
+            timerId = null
+        } else {
+            draw()
+            timerId = setInterval(moveDown, 1000)
+            nextRandom = Math.floor(Math.random()*theTetrominoes.length)
+            displayShape()
+        }
+    })
+
+    
+
 })
