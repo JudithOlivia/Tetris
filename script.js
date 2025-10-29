@@ -75,4 +75,28 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
+
+    function moveDown() {
+        undraw()
+        cureentPosition += width 
+        draw()
+        freeze()
+    }
+
+    function freeze() {
+        if(current.some(index => squared[currentPosition + index + width].classList.constains('taken'))) {
+            current.forEach(index => squares[currentPosition + index].classList.add('taken'))
+
+            random = nextRandom
+            nextRandom = Math.floor(Math.random() * theTertrominoes.length)
+            current = theTetrominoes[random][currentRotation]
+            currentPosition = 4
+
+            draw()
+            displayShape()
+            addScore()
+            gameOver()
+        }
+    }
+
 })
