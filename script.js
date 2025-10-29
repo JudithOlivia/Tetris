@@ -144,4 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
         draw()
     }
 
+    const displaySquares = document.querySelectorAll('.mini-grid div')
+    const displayWidth = 4
+    const displayIndex = 0
+
+    const upNextTetrominoes = [
+        [1, displayWidth+1, displayWidth*2+1, 2], 
+        [0, displayWidth, displayWidth+1, displayWidth*2+1], 
+        [1, displayWidth, displayWidth+1, displayWidth+2], 
+        [0, 1, displayWidth, displayWidth+1], 
+        [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1] 
+    ]
 })
