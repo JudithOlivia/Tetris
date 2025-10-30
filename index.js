@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 square.style.backgroundColor = '';
             });
             draw();
-            timerId = setInterval(moveDown, 1000);
+            timerId = setInterval(moveDown, 500);
             nextRandom = Math.floor(Math.random() * theTetrominoes.length);
             displayShape();
         }
@@ -243,7 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function gameOver() {
         if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-        scoreDisplay.innerHTML = 'GAME OVER - Score: ' + score;
         clearInterval(timerId);
         }
     }
