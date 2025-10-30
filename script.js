@@ -63,8 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function draw(){
         current.forEach(index => {
-            squares[currentPosition + index].classList.add('tetromino')
-            squares[currentPosition + index].style.backgroundColor = colors[random]
+            if (currentPosition + index < squares.length) {
+                squares[currentPosition + index].classList.add('tetromino')
+                squares[currentPosition + index].style.backgroundColor = colors[random]
+            }
         })
     }
 
