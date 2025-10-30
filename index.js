@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 square.style.backgroundColor = '';
             });
             draw();
-            timerId = setInterval(moveDown, 500);
+            timerId = setInterval(moveDown, 550);
             nextRandom = Math.floor(Math.random() * theTetrominoes.length);
             displayShape();
         }
