@@ -98,4 +98,32 @@ document.addEventListener('DOMContentLoaded', () => {
         freeze();
     }
 
+    function freeze() {
+        if (current.some(index =>
+        currentPosition + index + width >= squares.length || 
+        (squares[currentPosition + index + width] && 
+        squares[currentPosition + index + width].classList.contains('taken'))
+        )) {
+        current.forEach(index => {
+            if (currentPosition + index < squares.length) {
+            squares[currentPosition + index].classList.add('taken');
+            }
+        });
+
+        random = nextRandom;
+        nextRandom = Math.floor(Math.random() * theTetrominoes.length);
+        current = theTetrominoes[random][0];
+        currentPosition = 4;
+        currentRotation = 0;
+
+        draw();
+        displayShape();
+        addScore();
+        gameOver();
+        }
+    } 
+
+
+
+
 })
