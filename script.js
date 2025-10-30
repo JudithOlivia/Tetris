@@ -149,12 +149,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function rotate() {
         undraw()
-        currentRotation ++
-        if(currentRotation === current.length) {
-            currentRotation = 0
+        currentRotation = (currentRotation + 1) % 4 
+        const newCurrent = theTetrominoes[random][currentRotation]
+
+        let isValidRotation = true
+        for(let i = 0; i < newCurrent.length; i++) {
+            const newIndex = currentPosition + newCurrent[i]
+            if(newIndex >= squares.length || squares[newIndex].classList.contains('taken')) {
+                isValidRotation = false
+                break
+            }
         }
-        current = theTetrominoes[random][currentRotation]
-        checkRotatedPosition()
+        if(isValidRotation) {
+            current = newCurrent
+        } else {
+            currentRotation = (currentRotation + 3) % 4 
+        }
         draw()
     }
 
