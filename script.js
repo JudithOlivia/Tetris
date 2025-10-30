@@ -179,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             moveDown()
         }
     }
+    document.addEventListener('keydown', control)
 
     startBtn.addEventListener('click',() => {
         if(timerId) {
