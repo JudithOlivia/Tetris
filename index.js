@@ -239,6 +239,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function gameOver() {
+        if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+        scoreDisplay.innerHTML = 'GAME OVER - Score: ' + score;
+        clearInterval(timerId);
+        }
+    }
+
+    console.log('Game initialized! Grid cells:', squares.length);
 
 
 })
