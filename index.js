@@ -75,19 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function draw() {
         current.forEach(index => {
-        if (currentPosition + index < squares.length) {
-            squares[currentPosition + index].classList.add('tetromino');
-            squares[currentPosition + index].style.backgroundColor = colors[random];
-        }
+            const pos = currentPosition + index;
+            if (currentPosition + index < squares.length) {
+                squares[currentPosition + index].classList.add('tetromino');
+                squares[currentPosition + index].style.backgroundColor = colors[random];
+            }
         });
     }
 
     function undraw() {
         current.forEach(index => {
-        if (currentPosition + index < squares.length) {
-            squares[currentPosition + index].classList.remove('tetromino');
-            squares[currentPosition + index].style.backgroundColor = '';
-        }
+            const pos = currentPosition + index;
+            if (currentPosition + index < squares.length) {
+                squares[currentPosition + index].classList.remove('tetromino');
+                squares[currentPosition + index].style.backgroundColor = '';
+            }
         });
     }
 
@@ -247,6 +249,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log('Game initialized! Grid cells:', squares.length);
+
+    document.addEventListener('keydown', control);
+
 
 
 })
