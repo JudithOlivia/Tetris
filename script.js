@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [width, width+1, width+2, width+3]
     ]
 
-    const theTetrominoes = [ITetromino, zTetromino, tTetromino, oTetromino, iTetromino]
+    const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
 
     let currentPosition = 4
     let currentRotation = 0
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function draw(){
         current.forEach(index => {
-            squares[currentPosition + index].classList.add('tertromino')
+            squares[currentPosition + index].classList.add('tetromino')
             squares[currentPosition + index].style.backgroundColor = colors[random]
         })
     }
@@ -166,6 +166,18 @@ document.addEventListener('DOMContentLoaded', () => {
             displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
         })
 
+    }
+
+    function control(e) {
+        if(e.keyCode === 37) {
+            moveLeft()
+        } else if (e.KeyCode === 38) {
+            rotate()
+        } else if (e.KeyCode === 39) {
+            moveRight()
+        } else if (e.KeyCode === 40) {
+            moveDown()
+        }
     }
 
     startBtn.addEventListener('click',() => {
