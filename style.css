@@ -121,21 +121,3 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-.instructions {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    margin-top: 40px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.instructions h3 {
-    margin: 0 0 5px 0;
-    color: #ffeb3b;
-}
-
-.instructions p {
-    margin: 5px 0;
-    font-size: 14px;
-}
