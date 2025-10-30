@@ -223,6 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    
     function addScore() {
         for (let i = 0; i < 199; i += width) {
         const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9];
