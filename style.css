@@ -4,12 +4,21 @@ body {
     margin: 0;
     padding: 20px;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: rgb(250, 197, 247);
 }
 
 .game-header {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.game-header h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .game-info {
@@ -20,6 +29,11 @@ body {
     margin-bottom: 20px;
 }
 
+#score {
+    color: #ffeb3b;
+    font-weight: bold;
+    font-size: 32px;
+}
 
 #start-button {
     background: linear-gradient(45deg, #FF416C, #FF4B2B);
@@ -50,8 +64,8 @@ body {
 }
 
 .grid {
-    width: 200px;
-    height: 400px;
+    width: 300px;
+    height: 600px;
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(89, 103, 248);
@@ -86,17 +100,21 @@ body {
 }
 
 .mini-grid {
-    margin-left: 50px;
-    width: 80px;
-    height: 80px;
+   width: 120px; 
+    height: 120px; 
     display: flex;
     flex-wrap: wrap;
-    background-color: lightblue;
+    background: #1a1a2e;
+    border: 3px solid #4cc9f0;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(76, 201, 240, 0.3);
 }
 
 .mini-grid div {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box;
 }
 
 .taken {
@@ -105,13 +123,15 @@ body {
 
 .instructions {
     background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
+    padding: 25px;
+    border-radius: 15px;
     text-align: center;
+    margin-top: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .instructions h3 {
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
     color: #ffeb3b;
 }
 

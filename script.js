@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nextRandom = Math.floor(Math.random() * theTetrominoes.length)
             current = theTetrominoes[random][currentRotation]
             currentPosition = 4
+            currentRotation = 0
 
             draw()
             displayShape()
@@ -109,6 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
         draw()
     }
 
+    function moveRight() {
+        undraw()
+        const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1)
+        if(!isAtRightEdge) currentPosition +=1
+        if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+            currentPosition -=1
+        }
+        draw()
+    }
     function isAtRight() {
         return current.some(index=> (currentPosition + index + 1)% width === 0)
     }
@@ -171,11 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function control(e) {
         if(e.keyCode === 37) {
             moveLeft()
-        } else if (e.KeyCode === 38) {
+        } else if (e.keyCode === 38) {
             rotate()
-        } else if (e.KeyCode === 39) {
+        } else if (e.keyCode === 39) {
             moveRight()
-        } else if (e.KeyCode === 40) {
+        } else if (e.keyCode === 40) {
             moveDown()
         }
     }
