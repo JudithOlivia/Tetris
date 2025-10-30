@@ -64,8 +64,8 @@ body {
 }
 
 .grid {
-    width: 300px;
-    height: 600px;
+    width: 200px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(89, 103, 248);
@@ -77,6 +77,8 @@ body {
 .grid div {
     height: 20px;
     width: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-sizing: border-box
 }
 
 .tetromino {
@@ -100,8 +102,8 @@ body {
 }
 
 .mini-grid {
-   width: 120px; 
-    height: 120px; 
+   width: 80px; 
+    height: 80px; 
     display: flex;
     flex-wrap: wrap;
     background: #1a1a2e;
@@ -111,8 +113,8 @@ body {
 }
 
 .mini-grid div {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-sizing: border-box;
 }
