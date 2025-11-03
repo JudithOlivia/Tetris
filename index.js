@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    timerId = setInterval(oveDown, 1000)
+    timerId = setInterval(oveDown, 500)
 
     function moveDown() {
         undraw[]
