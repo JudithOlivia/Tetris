@@ -58,4 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[currentPosition + index].classList.remove('tetromino')
         })
     }
+
+    timerId = setInterval(oveDown, 1000)
+
+    function moveDown() {
+        undraw[]
+        currentPosition += width
+        draw()
+    }
+
 })
