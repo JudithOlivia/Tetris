@@ -112,4 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
         draw()
     }
 
+    function rotate() {
+        undraw()
+        currentRotation ++
+
+    }
+
 })
