@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentPosition = 4
     let currentRotation = 0
-    let random = Math.floor(Math.random()=theTetrominoes.length)
+    let random = Math.floor(Math.random()*theTetrominoes.length)
     let current = theTetrominoes[random][currentRotation]
 
     console.log(theTetrominoes[0][0])
@@ -74,10 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    timerId = setInterval(moveDown, 500)
 
     function control(e) {
-        if(e.KeyCode === 37) {
+        if(e.keyCode === 37) {
             moveLeft()
         }else if (e.keyCode === 38) {
             rotate()
@@ -86,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (e.keyCode === 40) {
             moveDown()
     }}
-    document.addEventListener('keyup', control)
+    document.addEventListener('keydown', control)
 
     function moveDown() {
         undraw()
@@ -97,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function freeze() {
         if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
-            current.forEach(index => squares[currentPosition + index.classList.add('taken')])
+            current.forEach(index => squares[currentPosition + index].classList.add('taken'))
             random = nextRandom
             nextRandom = Math.floor(Math.random() * theTetrominoes.length)
             current = theTetrominoes[random][currentRotation]
@@ -105,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             draw()
             displayShape()
             addScore()
+            gameOver()
         }
     }
 
