@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const scoreDisplay = document.querySelector('#score')
     const startBtn = document.querySelector('#start-button')
     const width = 10
+    let nextRandom = 0
+    let timerId 
 
     // Tetrominoes 
     const lTetromino = [
@@ -83,11 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function freeze() {
         if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
             current.forEach(index => squares[currentPosition + index.classList.add('taken')])
-
-            random = Math.floor(Math.random() * theTetrominoes.length)
+            random = nextRandom
+            nextRandom = Math.floor(Math.random() * theTetrominoes.length)
             current = theTetrominoes[random][currentRotation]
             currentPosition = 4
             draw()
+            displayShape()
         }
     }
 
@@ -126,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const displaySquares = document.querySelectorAll('.mini-grid div')
     const displayWidth = 4
     let displayIndex = 0
+    let nextRandom = 0
 
     const const upNextTetrominoes = [
         [1, displayWidth+1, displayWidth*2+1, 2], //lTetromino
@@ -141,9 +145,21 @@ document.addEventListener('DOMContentLoaded', () => {
         square.style.backgroundColor = ''
         })
         upNextTetrominoes[nextRandom].forEach( index => {
-        displaySquares[displayIndex + index].classList.add('tetromino')
-        displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
+            displaySquares[displayIndex + index].classList.add('tetromino')
+            displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
         })
     }
+
+    startBtn.addEventListener('click', () => {
+        if (timerId) {
+            clearInterval(timerId)
+            timerId = null
+        } else {
+            draw()
+            timerId = setInterval(moveDown, 1000)
+            nextRandom = Math.floor(Math.random[]*theTetrominoes.length)
+            displayShape()
+        }
+    })
 
 })
