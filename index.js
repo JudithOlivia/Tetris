@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let nextRandom = 0
     let timerId 
     let score = 0
+    const colors = [
+        'orange',
+        'red',
+        'purple',
+        'green',
+        'blue'
+    ]
 
     // Tetrominoes 
     const lTetromino = [
@@ -47,22 +54,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
 
     let currentPosition = 4
+    let currentRotation = 0
     let random = Math.floor(Math.random()=theTetrominoes.length)
-    let current = theTetrominoes[0][0]
+    let current = theTetrominoes[random][currentRotation]
+
+    console.log(theTetrominoes[0][0])
 
     function draw() {
         current.forEach(index => {
             squares[currentPosition + index].classList.add('tetromino')
+            squares[currentPosition + index].style.backgroundColor = colors[random]
         })
     }
 
     function undraw() {
         current.forEach(index => {
             squares[currentPosition + index].classList.remove('tetromino')
+            squares[currentPosition + index].style.backgroundColor = ''
         })
     }
 
-    timerId = setInterval(oveDown, 500)
+    timerId = setInterval(moveDown, 500)
 
     function control(e) {
         if(e.KeyCode === 37) {
@@ -92,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPosition = 4
             draw()
             displayShape()
+            addScore()
         }
     }
 
@@ -116,6 +129,16 @@ document.addEventListener('DOMContentLoaded', () => {
         draw()
     }
 
+    function isAtRight() {
+        return current.some(index=> (currentPosition + index + 1) % width === 0)  
+    }
+
+    function isAtLeft() {
+        return current.some(index=> (currentPosition + index) % width === 0)
+    }
+
+    
+
     function rotate() {
         undraw()
         currentRotation ++
@@ -130,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const displaySquares = document.querySelectorAll('.mini-grid div')
     const displayWidth = 4
     let displayIndex = 0
-    let nextRandom = 0
 
     const upNextTetrominoes = [
         [1, displayWidth+1, displayWidth*2+1, 2], //lTetromino
